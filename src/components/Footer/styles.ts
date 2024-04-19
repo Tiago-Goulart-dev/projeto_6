@@ -7,7 +7,7 @@ export const Container = styled.footer`
   margin-top: 80px;
 `
 
-export const Link = styled.a`
+export const LinkA = styled.a`
   color: ${cores.rosa};
   text-decoration: none;
   margin-right: 8px;

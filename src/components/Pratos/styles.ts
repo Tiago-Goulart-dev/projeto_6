@@ -7,11 +7,11 @@ export const Card = styled.div`
   position: relative;
   width: 320px;
 
-  img {
+  .img {
     margin-top: 8px;
     margin-left: 8px;
-    width: 304px;
-    max-height: 271px;
+    width: 95%;
+    height: 250px;
   }
 `
 

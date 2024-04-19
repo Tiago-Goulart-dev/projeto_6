@@ -8,19 +8,21 @@ export type Props = {
 
 const ProductsList = ({ restaurantes }: Props) => (
   <Container restaurantes={restaurantes}>
-    <List>
-      {restaurantes.map((restaurante) => (
-        <Product
-          key={restaurante.id}
-          nota={restaurante.nota}
-          description={restaurante.description}
-          image={restaurante.image}
-          infos={restaurante.infos}
-          title={restaurante.title}
-          caminho={restaurante.caminho}
-        />
-      ))}
-    </List>
+    <div className="container">
+      <List>
+        {restaurantes.map((restaurante) => (
+          <Product
+            key={restaurante.id}
+            nota={restaurante.nota}
+            description={restaurante.description}
+            image={restaurante.image}
+            infos={restaurante.infos}
+            title={restaurante.title}
+            caminho={restaurante.caminho}
+          />
+        ))}
+      </List>
+    </div>
   </Container>
 )
 

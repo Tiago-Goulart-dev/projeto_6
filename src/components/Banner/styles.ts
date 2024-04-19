@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 
 export const LinkContainer = styled(Link)`
   position: absolute;
-  top: 62px;
+  top: -118px;
   left: 171px;
   color: ${cores.rosa};
   font-size: 18px;
@@ -14,7 +14,7 @@ export const LinkContainer = styled(Link)`
 
 export const Cart = styled.h2`
   position: absolute;
-  top: 62px;
+  top: -118px;
   right: 171px;
   color: ${cores.rosa};
   font-size: 18px;
@@ -24,11 +24,9 @@ export const Cart = styled.h2`
 export const Imagem = styled.div`
   position: absolute;
   top: 185px;
-  height: 280px;
   width: 100%;
+  height: 280px
   display: block;
-  background-repeat: no-repeat;
-  background-size: cover;
   font-weight: bold;
   color: ${cores.branco};
 

@@ -9,7 +9,7 @@ type Props = {
 
 const Pratos = ({ description, image, title }: Props) => (
   <Card>
-    <img src={image} alt={title} />
+    <img className="img" src={image} alt={title} />
     <Container>
       <TituloContainer>
         <Titulo>{title}</Titulo>

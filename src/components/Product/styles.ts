@@ -7,9 +7,10 @@ export const Card = styled.div`
   position: relative;
   width: 472px;
 
-  img {
+  .img {
     width: 100%;
-    max-height: 271px;
+    height: 250px;
+    object-fit: cover;
   }
 
   ${TagContainer} {
