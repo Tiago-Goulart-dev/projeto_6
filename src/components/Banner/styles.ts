@@ -48,4 +48,6 @@ export const Classificacao = styled.h3`
   position: absolute;
   top: 32px;
   padding-left: 170px;
+  font-size: 32px;
+  font-weight: 100;
 `

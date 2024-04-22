@@ -6,11 +6,15 @@ export const Card = styled.div`
   background-color: ${cores.branco};
   position: relative;
   width: 472px;
+  border: 1px solid ${cores.rosa};
 
-  .img {
-    width: 100%;
+  .imagemcard {
+    width: 472px;
     height: 250px;
     object-fit: cover;
+    position: absolute;
+    top: -1px;
+    left: -1px;
   }
 
   ${TagContainer} {
@@ -19,6 +23,7 @@ export const Card = styled.div`
 `
 
 export const Titulo = styled.h3`
+  padding-top: 250px;
   font-weight: bold;
   font-size: 18px;
   margin-bottom: 8px;
@@ -37,6 +42,8 @@ export const EstrelaContainer = styled.div`
 export const Estrela = styled.img`
   height: 21px;
   padding-left: 8px;
+  z-index: 1;
+  transform: translate(0px, 250px);
 `
 
 export const Descricao = styled.p`

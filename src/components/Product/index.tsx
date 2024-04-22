@@ -30,7 +30,7 @@ const Product = ({
   caminho
 }: Props) => (
   <Card>
-    <img className="img" src={image} alt={title} />
+    <img className="imagemcard" src={image} alt={title} />
     <Infos>
       {infos.map((info) => (
         <Tag key={info}>{info}</Tag>
