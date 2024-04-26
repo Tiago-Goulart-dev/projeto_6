@@ -7,8 +7,19 @@ export const ButtonLink = styled(Link)`
   background-color: ${cores.rosa};
   font-size: 14px;
   font-weight: bold;
-  padding: 4px 6px;
+  padding: 3px 5px;
   text-decoration: none;
+  border: 1px solid ${cores.rosa};
+
+  &:hover {
+    color: ${cores.rosa};
+    background-color: ${cores.creme};
+  }
+
+  &:active {
+    color: ${cores.creme};
+    background-color: ${cores.rosa};
+  }
 `
 
 export const ButtonContainer = styled.button`

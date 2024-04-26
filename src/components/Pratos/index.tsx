@@ -2,21 +2,21 @@ import Button from '../Button'
 import { Card, Descricao, Titulo, Container, TituloContainer } from './styles'
 
 type Props = {
-  title: string
-  description: string
-  image: string
+  nome: string
+  descricao: string
+  foto: string
 }
 
-const Pratos = ({ description, image, title }: Props) => (
+const Pratos = ({ descricao, foto, nome }: Props) => (
   <Card>
-    <img className="img" src={image} alt={title} />
+    <img className="img" src={foto} alt={nome} />
     <Container>
       <TituloContainer>
-        <Titulo>{title}</Titulo>
+        <Titulo>{nome}</Titulo>
       </TituloContainer>
-      <Descricao>{description}</Descricao>
-      <Button type="button" title={'Clique para adicionar prato ao carrinho'}>
-        Adicionar ao carrinho
+      <Descricao>{descricao}</Descricao>
+      <Button type="button" title={'Clique para ver mais informações'}>
+        Saiba mais
       </Button>
     </Container>
   </Card>

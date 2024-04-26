@@ -8,50 +8,55 @@ import {
   Container,
   TituloContainer,
   EstrelaContainer,
-  Estrela
+  Estrela,
+  ContainerButton
 } from './styles'
 import estrela from '../../assets/images/estrela.svg'
 
 type Props = {
-  title: string
-  nota: string
-  description: string
-  infos: string[]
-  image: string
-  caminho: string
+  id: string
+  titulo: string
+  destacado: boolean
+  tipo: string
+  avaliacao: string
+  descricao: string
+  capa: string
 }
 
 const Product = ({
-  description,
-  image,
-  infos,
-  title,
-  nota,
-  caminho
+  id,
+  titulo,
+  destacado,
+  tipo,
+  avaliacao,
+  descricao,
+  capa
 }: Props) => (
   <Card>
-    <img className="imagemcard" src={image} alt={title} />
+    <img className="imagemcard" src={capa} alt={titulo} />
+
     <Infos>
-      {infos.map((info) => (
-        <Tag key={info}>{info}</Tag>
-      ))}
+      {destacado && <Tag>Destaque da semana</Tag>}
+      <Tag>{tipo}</Tag>
     </Infos>
     <Container>
       <TituloContainer>
-        <Titulo>{title}</Titulo>
+        <Titulo>{titulo}</Titulo>
         <EstrelaContainer>
-          <Titulo>{nota}</Titulo>
+          <Titulo>{avaliacao}</Titulo>
           <Estrela src={estrela} alt="estrela" />
         </EstrelaContainer>
       </TituloContainer>
-      <Descricao>{description}</Descricao>
-      <Button
-        type="link"
-        title={'Clique para acessar a página do restaurante'}
-        to={caminho}
-      >
-        Saiba mais
-      </Button>
+      <Descricao>{descricao}</Descricao>
+      <ContainerButton>
+        <Button
+          type="link"
+          title={'Clique para acessar a página do restaurante'}
+          to={`/restaurantes/${id}`}
+        >
+          Saiba mais
+        </Button>
+      </ContainerButton>
     </Container>
   </Card>
 )

@@ -51,6 +51,7 @@ export const Descricao = styled.p`
   line-height: 22px;
   margin-top: 16px;
   margin-bottom: 16px;
+  padding-bottom: 22px;
 `
 
 export const Infos = styled.div`
@@ -62,4 +63,10 @@ export const Infos = styled.div`
 export const Container = styled.div`
   margin: 0 8px;
   margin-bottom: 8px;
+`
+
+export const ContainerButton = styled.div`
+  position: absolute;
+  bottom: 8px;
+  left: 8px;
 `

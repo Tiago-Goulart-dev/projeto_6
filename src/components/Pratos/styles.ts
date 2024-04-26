@@ -12,6 +12,7 @@ export const Card = styled.div`
     margin-left: 8px;
     width: 95%;
     height: 250px;
+    object-fit: cover;
   }
 `
 
