@@ -1,5 +1,15 @@
 import { useEffect, useState } from 'react'
 import ProductsList from '../../components/ProductsList'
+import Header from '../../components/Header'
+
+export type Cardapio = {
+  foto: string
+  preco: number
+  id: number
+  nome: string
+  descricao: string
+  porcao: string
+}
 
 export type Restaurantes = {
   id: string
@@ -9,14 +19,14 @@ export type Restaurantes = {
   avaliacao: string
   descricao: string
   capa: string
-  cardapio: {
-    foto: string
-    preco: number
-    id: string
-    nome: string
-    descricao: string
+  cardapio: [
+    foto: string,
+    preco: number,
+    id: number,
+    nome: string,
+    descricao: string,
     porcao: string
-  }
+  ]
 }
 
 const Home = () => {
@@ -30,6 +40,7 @@ const Home = () => {
 
   return (
     <>
+      <Header type={'home'} />
       <ProductsList restaurantes={restaurantes} />
     </>
   )

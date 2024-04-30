@@ -1,51 +1,38 @@
+import { useEffect, useState } from 'react'
+import { Restaurantes } from '../../pages/Home'
 import { Imagem, Titulo, Classificacao, LinkContainer, Cart } from './styles'
-import italiana from '../../assets/images/italiana.png'
-import japonesa from '../../assets/images/japonesa.png'
+import { useParams } from 'react-router-dom'
 
-const BannerJaponesa = () => (
-  <>
-    <Imagem
-      style={{
-        background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${japonesa})`,
-        backgroundRepeat: `no-repeat`,
-        backgroundSize: `cover`
-      }}
-    >
-      <div className="container">
-        <Classificacao>Japonesa</Classificacao>
-        <div>
-          <Titulo>Hioki Sushi</Titulo>
+const Banner = () => {
+  const { id } = useParams()
+  const [restaurante, setRestaurante] = useState<Restaurantes>()
+
+  useEffect(() => {
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+      .then((res) => res.json())
+      .then((res) => setRestaurante(res))
+  }, [id])
+
+  return (
+    <>
+      <Imagem
+        style={{
+          backgroundImage: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${restaurante?.capa})`
+        }}
+      >
+        <div className="container">
+          <Classificacao>{restaurante?.tipo}</Classificacao>
+          <div>
+            <Titulo>{restaurante?.titulo}</Titulo>
+          </div>
+          <LinkContainer to="/" title="Ir para página de restaurantes">
+            Restaurantes
+          </LinkContainer>
+          <Cart>0 produto(s) no carrinho</Cart>
         </div>
-        <LinkContainer to="/" title="Ir para página de restaurantes">
-          Restaurantes
-        </LinkContainer>
-        <Cart>0 produto(s) no carrinho</Cart>
-      </div>
-    </Imagem>
-  </>
-)
+      </Imagem>
+    </>
+  )
+}
 
-const BannerItaliana = () => (
-  <>
-    <Imagem
-      style={{
-        background: `linear-gradient( rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5) ), url(${italiana})`,
-        backgroundRepeat: `no-repeat`,
-        backgroundSize: `cover`
-      }}
-    >
-      <div className="container">
-        <Classificacao>Italiana</Classificacao>
-        <div>
-          <Titulo>La Dolce Vita Trattoria</Titulo>
-        </div>
-        <LinkContainer to="/" title="Ir para página de restaurantes">
-          Restaurantes
-        </LinkContainer>
-        <Cart>0 produto(s) no carrinho</Cart>
-      </div>
-    </Imagem>
-  </>
-)
-
-export { BannerItaliana, BannerJaponesa }
+export default Banner

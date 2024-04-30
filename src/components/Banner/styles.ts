@@ -29,6 +29,9 @@ export const Imagem = styled.div`
   display: block;
   font-weight: bold;
   color: ${cores.branco};
+  background-repeat: no-repeat;
+  background-size: cover;
+
 
   .container {
     position: relative;
@@ -37,6 +40,7 @@ export const Imagem = styled.div`
     justify-content: space-between;
     align-items: flex-end;
   }
+
 `
 
 export const Titulo = styled.h2`
