@@ -17,6 +17,8 @@ const PratosList = ({ pratos }: Props) => {
               descricao={prato.descricao}
               foto={prato.foto}
               nome={prato.nome}
+              porcao={prato.porcao}
+              preco={prato.preco}
             />
           ))}
         </List>

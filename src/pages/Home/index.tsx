@@ -38,6 +38,10 @@ const Home = () => {
       .then((res) => setRestaurantes(res))
   }, [])
 
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [])
+
   return (
     <>
       <Header type={'home'} />
