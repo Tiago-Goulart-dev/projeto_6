@@ -54,7 +54,7 @@ export const ContainerButton = styled.div`
   width: 95%;
 `
 
-export const Modal = styled.div`
+export const ContainerPrato = styled.div`
   position: fixed;
   top: 0;
   left: 0;
@@ -64,7 +64,7 @@ export const Modal = styled.div`
   display: none;
   align-items: center;
   justify-content: center;
-  &.visible {
+  &.visivel {
     display: flex;
   }
   .overlay {
@@ -77,7 +77,7 @@ export const Modal = styled.div`
   }
 `
 
-export const ModalContent = styled.div`
+export const CardPrato = styled.div`
   max-width: 1024px;
   display: grid;
   grid-template-columns: 280px auto;
@@ -87,24 +87,22 @@ export const ModalContent = styled.div`
   position: relative;
   z-index: 1;
   color: ${cores.branco};
-  .modal-image {
+  .imagem {
     img {
       width: 280px;
       height: 280px;
       object-fit: cover;
     }
   }
-  header {
-    h4 {
-      font-size: 18px;
-      font-weight: 900;
-    }
+  h4 {
+    font-size: 18px;
+    font-weight: 900;
   }
   .infos {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    padding: 16px 0;
+    padding-top: 16px;
     height: 176px;
   }
   p {
@@ -115,7 +113,7 @@ export const ModalContent = styled.div`
     padding-top: 16px;
     display: inline-block;
   }
-  .close {
+  .fechar {
     position: absolute;
     right: 8px;
     top: 8px;

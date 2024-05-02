@@ -9,8 +9,8 @@ import {
   Container,
   TituloContainer,
   ContainerButton,
-  Modal,
-  ModalContent
+  ContainerPrato,
+  CardPrato
 } from './styles'
 
 type Props = {
@@ -22,7 +22,7 @@ type Props = {
 }
 
 const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
-  const [modalIsVisible, setModalIsVisible] = useState(false)
+  const [PratosDetalhes, setPratosDetalhes] = useState(false)
 
   const getDescricao = (descricao: string) => {
     if (descricao.length > 200) {
@@ -53,36 +53,34 @@ const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
             <Button
               type="button"
               title={'Clique para ver mais informações'}
-              onClick={() => setModalIsVisible(true)}
+              onClick={() => setPratosDetalhes(true)}
             >
               Mais Detalhes
             </Button>
           </ContainerButton>
         </Container>
       </Card>
-      <Modal className={modalIsVisible ? 'visible' : ''}>
-        <ModalContent className="container">
-          <div className="close">
+      <ContainerPrato className={PratosDetalhes ? 'visivel' : ''}>
+        <CardPrato className="container">
+          <div className="fechar">
             <img
               src={fechar}
-              alt="close icon"
-              onClick={() => setModalIsVisible(false)}
+              alt="fechar"
+              onClick={() => setPratosDetalhes(false)}
             />
           </div>
-          <div className="modal-image">
+          <div className="imagem">
             <img src={foto} alt="pizza" />
           </div>
           <div>
-            <header>
-              <h4>{nome}</h4>
-            </header>
+            <h4>{nome}</h4>
             <div className="infos">
               <p className="description">{descricao}</p>
               <p>Serve: {porcao}</p>
             </div>
             <div className="button">
               <Button
-                onClick={() => setModalIsVisible(false)}
+                onClick={() => setPratosDetalhes(false)}
                 type="button"
                 title={'Clique para adicionar item ao carrinho'}
               >
@@ -90,9 +88,9 @@ const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
               </Button>
             </div>
           </div>
-        </ModalContent>
-        <div className="overlay" onClick={() => setModalIsVisible(false)}></div>
-      </Modal>
+        </CardPrato>
+        <div className="overlay" onClick={() => setPratosDetalhes(false)}></div>
+      </ContainerPrato>
     </>
   )
 }
