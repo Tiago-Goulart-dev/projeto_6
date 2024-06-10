@@ -12,7 +12,7 @@ export const LinkContainer = styled(Link)`
   text-decoration: none;
 `
 
-export const Cart = styled.h2`
+export const Cart = styled.a`
   position: absolute;
   top: -118px;
   right: 171px;

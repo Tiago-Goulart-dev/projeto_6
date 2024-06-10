@@ -1,6 +1,9 @@
 import { useState } from 'react'
 import Button from '../Button'
 import fechar from '../../assets/images/fechar.png'
+import { useDispatch } from 'react-redux'
+import { Cardapio } from '../../pages/Cardapio'
+import { add, open } from '../../store/reducers/cart'
 
 import {
   Card,
@@ -13,16 +16,29 @@ import {
   CardPrato
 } from './styles'
 
-type Props = {
-  nome: string
-  descricao: string
-  foto: string
-  porcao: string
-  preco: number
+type ModalState = {
+  isVisible: boolean
 }
 
-const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
-  const [PratosDetalhes, setPratosDetalhes] = useState(false)
+type PratoProps = {
+  prato: Cardapio
+}
+
+export const formataPreco = (preco: number) => {
+  return new Intl.NumberFormat('pt-br', {
+    style: 'currency',
+    currency: 'BRL'
+  }).format(preco)
+}
+
+const Pratos = ({ descricao, foto, nome, porcao, preco, id }: Cardapio) => {
+  const [modal, setModal] = useState<ModalState>({ isVisible: false })
+
+  const closeModal = () => {
+    setModal({
+      isVisible: false
+    })
+  }
 
   const getDescricao = (descricao: string) => {
     if (descricao.length > 200) {
@@ -31,14 +47,22 @@ const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
     return descricao
   }
 
-  const formataPreco = (preco: number) => {
-    return new Intl.NumberFormat('pt-br', {
-      style: 'currency',
-      currency: 'BRL'
-    }).format(preco)
+  const precoFormatado = formataPreco(preco)
+
+  const prato = {
+    foto,
+    nome,
+    descricao,
+    porcao,
+    preco,
+    id
   }
 
-  const precoFormatado = formataPreco(preco)
+  const dispatch = useDispatch()
+  const addToCart = () => {
+    dispatch(add(prato))
+    dispatch(open())
+  }
 
   return (
     <>
@@ -53,24 +77,24 @@ const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
             <Button
               type="button"
               title={'Clique para ver mais informações'}
-              onClick={() => setPratosDetalhes(true)}
+              onClick={() => {
+                setModal({
+                  isVisible: true
+                })
+              }}
             >
-              Mais Detalhes
+              Adicionar ao carrinho
             </Button>
           </ContainerButton>
         </Container>
       </Card>
-      <ContainerPrato className={PratosDetalhes ? 'visivel' : ''}>
+      <ContainerPrato className={modal.isVisible ? 'visivel' : ''}>
         <CardPrato className="container">
           <div className="fechar">
-            <img
-              src={fechar}
-              alt="fechar"
-              onClick={() => setPratosDetalhes(false)}
-            />
+            <img src={fechar} alt="fechar" onClick={() => closeModal()} />
           </div>
           <div className="imagem">
-            <img src={foto} alt="pizza" />
+            <img src={foto} alt="imagem do prato" />
           </div>
           <div>
             <h4>{nome}</h4>
@@ -80,7 +104,7 @@ const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
             </div>
             <div className="button">
               <Button
-                onClick={() => setPratosDetalhes(false)}
+                onClick={addToCart}
                 type="button"
                 title={'Clique para adicionar item ao carrinho'}
               >
@@ -89,7 +113,12 @@ const Pratos = ({ descricao, foto, nome, porcao, preco }: Props) => {
             </div>
           </div>
         </CardPrato>
-        <div className="overlay" onClick={() => setPratosDetalhes(false)}></div>
+        <div
+          className="overlay"
+          onClick={() => {
+            closeModal()
+          }}
+        ></div>
       </ContainerPrato>
     </>
   )

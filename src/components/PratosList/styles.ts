@@ -1,7 +1,7 @@
 import styled from 'styled-components'
 import { Props } from '.'
 
-export const Container = styled.section<Props>`
+export const Container = styled.section`
   padding: 32px 0;
 `
 
