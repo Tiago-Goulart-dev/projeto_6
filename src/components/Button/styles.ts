@@ -22,6 +22,18 @@ export const ButtonLink = styled(Link)`
   }
 `
 
+export const ButtonMenu = styled.button`
+  color: ${cores.rosa};
+  background-color: transparent;
+  font-size: 14px;
+  font-weight: bold;
+  border: none;
+
+  &:hover {
+    cursor: pointer;
+  }
+`
+
 export const ButtonContainer = styled.button`
   color: ${cores.rosa};
   background-color: ${cores.creme};

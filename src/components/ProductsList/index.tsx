@@ -1,9 +1,9 @@
 import Product from '../Product'
 import { Container, List } from './styles'
-import { Restaurante } from '../../pages/Home'
+import { Restaurantes } from '../../pages/Home'
 
 export type Props = {
-  restaurantes: Restaurante[]
+  restaurantes: Restaurantes
 }
 
 const ProductsList = ({ restaurantes }: Props) => (

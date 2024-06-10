@@ -47,7 +47,7 @@ export const Estrela = styled.img`
 `
 
 export const Descricao = styled.p`
-  font-size: 14px;
+  font-size: 14.5px;
   line-height: 22px;
   margin-top: 16px;
   margin-bottom: 16px;

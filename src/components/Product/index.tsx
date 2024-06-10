@@ -52,7 +52,7 @@ const Product = ({
         <Button
           type="link"
           title={'Clique para acessar a página do restaurante'}
-          to={`/restaurantes/${id}`}
+          to={`/cardapio/${id}`}
         >
           Saiba mais
         </Button>

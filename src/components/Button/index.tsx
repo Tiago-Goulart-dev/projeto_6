@@ -1,7 +1,7 @@
-import { ButtonContainer, ButtonLink } from './styles'
+import { ButtonContainer, ButtonLink, ButtonMenu } from './styles'
 
 type Props = {
-  type: 'button' | 'link'
+  type: 'button' | 'link' | 'menu'
   title: string
   to?: string
   onClick?: () => void
@@ -16,10 +16,17 @@ const Button = ({ type, title, to, onClick, children }: Props) => {
       </ButtonContainer>
     )
   }
+  if (type === 'link') {
+    return (
+      <ButtonLink to={to as string} title={title}>
+        {children}
+      </ButtonLink>
+    )
+  }
   return (
-    <ButtonLink to={to as string} title={title}>
+    <ButtonMenu onClick={onClick} title={title}>
       {children}
-    </ButtonLink>
+    </ButtonMenu>
   )
 }
 

@@ -5,6 +5,7 @@ import background from '../../assets/images/background.svg'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { open } from '../../store/reducers/cart'
+import Button from '../Button'
 
 type Props = {
   type: 'home' | 'cardapio'
@@ -38,19 +39,24 @@ const Header = ({ type }: Props) => {
   return (
     <Imagem style={{ backgroundImage: `url(${background})` }}>
       <HeaderBar>
-        <div>
-          <p style={{ fontSize: '18px', fontWeight: 'bold' }}>Restaurantes</p>
-        </div>
-        <Link to="/">
-          <img src={logo} alt="Efood" />
-        </Link>
-        <div>
-          <button
-            onClick={openCart}
-            style={{ fontSize: '18px', fontWeight: 'bold' }}
-          >
+        <div className="container">
+          <Button type={'menu'} title={'Ir para lista de restaurantes'}>
+            Restaurantes
+          </Button>
+          <Link to="/">
+            <img
+              src={logo}
+              style={{
+                verticalAlign: `middle`,
+                paddingLeft: `25%`,
+                paddingRight: `25%`
+              }}
+              alt="Efood"
+            />
+          </Link>
+          <Button onClick={openCart} type={'menu'} title={'Abrir carrinho'}>
             {items.length} produto(s) no carrinho
-          </button>
+          </Button>
         </div>
       </HeaderBar>
     </Imagem>

@@ -14,7 +14,7 @@ export type Cardapio = {
   porcao: string
 }
 
-export interface Restaurantes {
+export type Restaurantes = {
   id: string
   titulo: string
   destacado: boolean
