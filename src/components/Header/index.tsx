@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom'
-import { HeaderBar, HeaderText, Imagem } from './styles'
+import { HeaderBar, HeaderText, Imagem, Menu1, Menu2 } from './styles'
 import logo from '../../assets/images/logo.svg'
 import background from '../../assets/images/background.svg'
 import { useDispatch, useSelector } from 'react-redux'
@@ -38,27 +38,29 @@ const Header = ({ type }: Props) => {
   }
   return (
     <Imagem style={{ backgroundImage: `url(${background})` }}>
-      <HeaderBar>
-        <div className="container">
-          <Button type={'menu'} title={'Ir para lista de restaurantes'}>
-            Restaurantes
-          </Button>
+      <div className="container">
+        <HeaderBar>
+          <Menu1>
+            <Button type={'menu'} title={'Ir para lista de restaurantes'}>
+              Restaurantes
+            </Button>
+          </Menu1>
+          <Menu2>
+            <Button onClick={openCart} type={'menu'} title={'Abrir carrinho'}>
+              {items.length} produto(s) no carrinho
+            </Button>
+          </Menu2>
           <Link to="/">
             <img
               src={logo}
               style={{
-                verticalAlign: `middle`,
-                paddingLeft: `25%`,
-                paddingRight: `25%`
+                verticalAlign: `middle`
               }}
               alt="Efood"
             />
           </Link>
-          <Button onClick={openCart} type={'menu'} title={'Abrir carrinho'}>
-            {items.length} produto(s) no carrinho
-          </Button>
-        </div>
-      </HeaderBar>
+        </HeaderBar>
+      </div>
     </Imagem>
   )
 }

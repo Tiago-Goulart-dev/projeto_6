@@ -25,7 +25,7 @@ export const ButtonLink = styled(Link)`
 export const ButtonMenu = styled.button`
   color: ${cores.rosa};
   background-color: transparent;
-  font-size: 14px;
+  font-size: 18px;
   font-weight: bold;
   border: none;
 

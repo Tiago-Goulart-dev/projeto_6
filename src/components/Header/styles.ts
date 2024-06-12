@@ -20,3 +20,15 @@ export const Imagem = styled.div`
   background-size: cover;
   margin-bottom: 80px;
 `
+
+export const Menu1 = styled.div`
+  position: absolute;
+  padding-left: 171px;
+  margin-top: 20px;
+`
+
+export const Menu2 = styled.div`
+  position: absolute;
+  padding-left: 1024px;
+  margin-top: 20px;
+`

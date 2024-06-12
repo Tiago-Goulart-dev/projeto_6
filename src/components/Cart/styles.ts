@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { cores } from '../../styles'
 import { TagContainer } from '../Tag/styles'
 import { ButtonContainer } from '../Button/styles'
-import fechar from '../../assets/images/fechar.png'
+import lixeira from '../../assets/images/lixeira-de-reciclagem 1.png'
 
 export const Overlay = styled.div`
   position: absolute;
@@ -51,9 +51,11 @@ export const Preco = styled.div`
 
 export const CartItem = styled.li`
   display: flex;
-  border-bottom: 1px solid ${cores.creme};
-  padding: 8px 0;
+  background-color: ${cores.creme};
+  padding: 8px;
   position: relative;
+  margin-bottom: 16px;
+
   img {
     height: 80px;
     width: 80px;
@@ -61,13 +63,14 @@ export const CartItem = styled.li`
     margin-right: 24px;
   }
   h3 {
-    color: ${cores.branco};
+    color: ${cores.rosa};
     font-weight: bold;
     font-size: 16px;
+    margin-bottom: 16px;
   }
   span {
     display: block;
-    color: ${cores.branco};
+    color: ${cores.rosa};
     font-weight: bold;
     font-size: 14px;
   }
@@ -77,13 +80,14 @@ export const CartItem = styled.li`
     margin-bottom: 16px;
   }
   button {
-    background-image: url(${fechar});
+    background-image: url(${lixeira});
     width: 16px;
     height: 16px;
     border: none;
     background-color: transparent;
     position: absolute;
-    top: 8;
-    right: 0;
+    bottom: 8px;
+    right: 8px;
+    cursor: pointer;
   }
 `
