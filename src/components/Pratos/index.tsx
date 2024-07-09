@@ -2,7 +2,6 @@ import { useState } from 'react'
 import Button from '../Button'
 import fechar from '../../assets/images/fechar.png'
 import { useDispatch } from 'react-redux'
-import { Cardapio } from '../../pages/Cardapio'
 import { add, open } from '../../store/reducers/cart'
 
 import {
@@ -18,10 +17,6 @@ import {
 
 type ModalState = {
   isVisible: boolean
-}
-
-type PratoProps = {
-  prato: Cardapio
 }
 
 export const formataPreco = (preco: number) => {

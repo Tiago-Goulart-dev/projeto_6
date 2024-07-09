@@ -1,6 +1,5 @@
 import Product from '../Product'
 import { Container, List } from './styles'
-import { Restaurantes } from '../../pages/Home'
 
 export type Props = {
   restaurantes: Restaurantes

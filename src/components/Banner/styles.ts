@@ -1,25 +1,5 @@
 import styled from 'styled-components'
 import { cores } from '../../styles'
-import { Link } from 'react-router-dom'
-
-export const LinkContainer = styled(Link)`
-  position: absolute;
-  top: -118px;
-  left: 171px;
-  color: ${cores.rosa};
-  font-size: 18px;
-  font-weight: bold;
-  text-decoration: none;
-`
-
-export const Cart = styled.a`
-  position: absolute;
-  top: -118px;
-  right: 171px;
-  color: ${cores.rosa};
-  font-size: 18px;
-  font-weight: bold;
-`
 
 export const Imagem = styled.div`
   position: absolute;

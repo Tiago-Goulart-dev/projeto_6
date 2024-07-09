@@ -1,10 +1,14 @@
-import { Imagem, Titulo, Classificacao, LinkContainer, Cart } from './styles'
+import { Imagem, Titulo, Classificacao } from './styles'
 import { useParams } from 'react-router-dom'
 import { useGetBannerQuery } from '../../services/api'
 
+type BannerParams = {
+  id: string
+}
+
 const Banner = () => {
-  const { id } = useParams()
-  const { data: restaurante } = useGetBannerQuery(id!)
+  const { id } = useParams() as BannerParams
+  const { data: restaurante } = useGetBannerQuery(id)
 
   return (
     <Imagem

@@ -1,6 +1,5 @@
 import Pratos from '../Pratos'
 import { Container, List } from './styles'
-import { Cardapio } from '../../pages/Cardapio'
 
 export type Props = {
   pratos: Cardapio[]

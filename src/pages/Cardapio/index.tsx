@@ -5,29 +5,13 @@ import Header from '../../components/Header'
 import { useGetRestauranteQuery } from '../../services/api'
 import { useEffect } from 'react'
 
-export type Cardapio = {
-  foto: string
-  preco: number
-  id: number
-  nome: string
-  descricao: string
-  porcao: string
-}
-
-export type Restaurantes = {
+type CardapioParams = {
   id: string
-  titulo: string
-  destacado: boolean
-  tipo: string
-  avaliacao: string
-  descricao: string
-  capa: string
-  cardapio: Cardapio[]
 }
 
 const CardapioRestaurante = () => {
-  const { id } = useParams()
-  const { data: restaurante } = useGetRestauranteQuery(id!)
+  const { id } = useParams() as CardapioParams
+  const { data: restaurante } = useGetRestauranteQuery(id)
 
   useEffect(() => {
     window.scrollTo(0, 0)

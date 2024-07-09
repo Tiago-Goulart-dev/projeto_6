@@ -38,6 +38,12 @@ export const Sidebar = styled.aside`
     max-width: 100%;
     width: 100%;
   }
+
+  .empty {
+    font-size: 16px;
+    color: ${cores.creme};
+    text-align: center;
+  }
 `
 
 export const Preco = styled.div`
